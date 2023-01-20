@@ -1,15 +1,15 @@
-import sanitize from "sanitize-html";
-import * as bcrypt from "bcrypt";
-import user from "../../database/user";
-import sanitizeConfig from "../config/sanitize";
+const sanitize = require("sanitize-html");
+const bcrypt = require("bcrypt");
+const user = require("../../database/user.js");
+const { sanitizeAll } = require("../config/sanitize.js");
 
 /**
  * @param {import("express").Request} req
  * @param {import("express").Response} res
  */
-export default function postLoginController(req, res) {
-  const username = sanitize(req.body.username, sanitizeConfig.sanitizeAll);
-  const password = sanitize(req.body.password, sanitizeConfig.sanitizeAll);
+module.exports = function postLoginController(req, res) {
+  const username = sanitize(req.body.username, sanitizeAll);
+  const password = sanitize(req.body.password, sanitizeAll);
 
   if (user.findIndex((val) => val.username === username) === -1) {
     res.render("login", { error: "Wrong credentials" });

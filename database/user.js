@@ -14,6 +14,15 @@ class User {
      * @type {string}
      */
     password
+    /**
+     * @public
+     * @type {string}
+     */
+    accountType
+    /**
+     * @type {string}
+     */
+    name
 }
 
 /**
@@ -21,4 +30,4 @@ class User {
  */
 let user = []
 
-export default user
+module.exports = user

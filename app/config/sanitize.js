@@ -1,11 +1,10 @@
-const sanitizeConfig = {
-    /**
-     * @type {import("sanitize-html").IOptions}
-     */
-    sanitizeAll: {
-        allowedTags: [],
-        allowedAttributes: {}
-    }
-}
+/**
+ * Santize all tags and attributes
+ * @type {import("sanitize-html").IOptions}
+ */
+const sanitizeAll = {
+  allowedTags: [],
+  allowedAttributes: {},
+};
 
-export default sanitizeConfig
+module.exports = { sanitizeAll };
